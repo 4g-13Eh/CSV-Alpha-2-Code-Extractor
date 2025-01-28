@@ -53,3 +53,29 @@ if __name__ == "__main__":
     # Prompt user for the CSV file path
     file_name = input("Enter the path to the CSV file: ")
     extract_alpha2_codes(file_name)
+
+
+
+
+import csv
+
+def extract_alpha2_codes(file_name):
+    with open(file_name, mode='r', newline='', encoding='utf-8') as file:
+        csv_reader = csv.reader(file)
+        
+        # Skip the header if present
+        next(csv_reader)
+        
+        # Extract and print the alpha-2 codes in the required format
+        for row in csv_reader:
+            if len(row) >= 2:
+                country_code = row[1]
+                print(f'{country_code} = "{country_code}",')
+
+if __name__ == "__main__":
+    # Prompt user for the CSV file path
+    file_name = input("Enter the path to the CSV file: ")
+    extract_alpha2_codes(file_name)
+
+
+    
