@@ -1,81 +1,28 @@
-# iso2
+# CSV Alpha-2 Code Extractor
 
+This Python script extracts Alpha-2 country codes from a CSV file and provides different ways to output them, either to the clipboard, a text file, or directly to the console. The script supports two output formats: "single" (just the country code) and "dual" (country code in a formatted `key = "value"` style).
 
+## Requirements
+- Python 3.x
+- `pyperclip` library for clipboard functionality
 
-import csv
-import pyperclip
+You can install the required library using pip:
+```bash
+pip install -r requirements.txt
+```
 
-def extract_alpha2_codes(file_name):
-    alpha2_codes = []
-    
-    with open(file_name, mode='r', newline='', encoding='utf-8') as file:
-        csv_reader = csv.reader(file)
-        
-        # Skip the header if present
-        next(csv_reader)
-        
-        # Extract and store only the alpha-2 codes (second column)
-        for row in csv_reader:
-            if len(row) >= 2:
-                alpha2_codes.append(row[1])  # row[1] is the alpha-2 code
-    
-    # Convert list of alpha-2 codes to a string
-    result = "\n".join(alpha2_codes)
-    
-    # Copy the result to the clipboard
-    pyperclip.copy(result)
-    print("Alpha-2 codes have been copied to clipboard!")
+## Usage
 
-if __name__ == "__main__":
-    # Prompt user for the CSV file path
-    file_name = input("Enter the path to the CSV file: ")
-    extract_alpha2_codes(file_name)
+1. **Input CSV File**  
+   The script requires a CSV file.
 
+2. **Output Type**  
+   You will be prompted to choose the type of output:
+   - `clipboard`: Copies the extracted Alpha-2 codes to your clipboard.
+   - `file`: Writes the extracted Alpha-2 codes to an output text file (`output.txt`).
+   - `console`: Prints the extracted Alpha-2 codes to the console.
 
-
-
-
-import csv
-
-def extract_alpha2_codes(file_name):
-    with open(file_name, mode='r', newline='', encoding='utf-8') as file:
-        csv_reader = csv.reader(file)
-        
-        # Skip the header if present
-        next(csv_reader)
-        
-        # Extract and print only the alpha-2 codes (second column)
-        for row in csv_reader:
-            if len(row) >= 2:
-                print(row[1])  # row[1] is the alpha-2 code
-
-if __name__ == "__main__":
-    # Prompt user for the CSV file path
-    file_name = input("Enter the path to the CSV file: ")
-    extract_alpha2_codes(file_name)
-
-
-
-
-import csv
-
-def extract_alpha2_codes(file_name):
-    with open(file_name, mode='r', newline='', encoding='utf-8') as file:
-        csv_reader = csv.reader(file)
-        
-        # Skip the header if present
-        next(csv_reader)
-        
-        # Extract and print the alpha-2 codes in the required format
-        for row in csv_reader:
-            if len(row) >= 2:
-                country_code = row[1]
-                print(f'{country_code} = "{country_code}",')
-
-if __name__ == "__main__":
-    # Prompt user for the CSV file path
-    file_name = input("Enter the path to the CSV file: ")
-    extract_alpha2_codes(file_name)
-
-
-    
+3. **Output Format**  
+   You will also be prompted to select the format of the output:
+   - `single`: Extracts just the Alpha-2 country code.
+   - `dual`: Outputs the Alpha-2 codes in a formatted style, e.g., `US = "US",`.
