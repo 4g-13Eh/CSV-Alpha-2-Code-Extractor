@@ -1,6 +1,6 @@
 # CSV Alpha-2 Code Extractor
 
-This Python script extracts Alpha-2 country codes from a CSV file and provides different ways to output them, either to the clipboard, a text file, or directly to the console. The script supports two output formats: "single" (just the country code) and "dual" (country code in a formatted `key = "value"` style).
+This Python script extracts Alpha-2 country codes from a CSV file (https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv) and provides different ways to output them, either to the clipboard, a text file, or directly to the console. The script supports two output formats: "single" (just the country code) and "dual" (country code in a formatted `key = "value"` style).
 
 ## Requirements
 - Python 3.x
